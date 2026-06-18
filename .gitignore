@@ -1,1 +1,37 @@
+# Maven
+target/
+*.jar
+*.war
+*.ear
+
+# IDE
+.idea/
+*.iml
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+.env
+.env.local
+
+# Modules
 /weatherApiCommon/
+/weatherApiService/target
+/weatherApiCommon/target
+
+# Database
+*.db
+*.sqlite
+*.log
+
+# Build artifacts
+.gradle/
+build/
