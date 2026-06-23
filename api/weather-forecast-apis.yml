@@ -20,7 +20,7 @@ externalDocs:
   description: ISO 3166 - Country Codes
   url: https://www.iso.org/iso-3166-country-codes.html
 servers:
-  - url: localhost:8080
+  - url: http://localhost:8081/api
     variables: {}
     description: for testing on local computer
 tags:
@@ -504,19 +504,19 @@ paths:
                   "temperature": 12,
                   "precipitation": 88,
                   "status": "Cloudy"
-                },
+               },
                 {
                   "hour_of_day": 9,
                   "temperature": 13,
                   "precipitation": 86,
                   "status": "Cloudy"
-                },
+               },
                 {
                   "hour_of_day": 10,
                   "temperature": 15,
                   "precipitation": 60,
                   "status": "Sunny"
-                }
+               }
               ]
       responses:
         '200':
@@ -657,7 +657,7 @@ paths:
                   "max_temp": 12,
                   "precipitation": 60,
                   "status": "Cloudy"
-                },
+               },
                 {
                   "day_of_month": 11,
                   "month": 2,
@@ -665,7 +665,7 @@ paths:
                   "max_temp": 14,
                   "precipitation": 70,
                   "status": "Sunny"
-                },
+               },
                 {
                   "day_of_month": 12,
                   "month": 2,
@@ -673,7 +673,7 @@ paths:
                   "max_temp": 10,
                   "precipitation": 90,
                   "status": "Rainy"
-                }
+               }
               ]
       responses:
         '200':
@@ -1064,15 +1064,15 @@ components:
         enabled: true
         _links:
           self:
-            href: http://localhost:8080/v1/locations/LACA_US
-          realtime:
-            href: http://localhost:8080/v1/realtime/LACA_US
-          hourly_forecast:
-            href: http://localhost:8080/v1/hourly/LACA_US
-          daily_forecast:
-            href: http://localhost:8080/v1/daily/LACA_US
-          full_forecast:
-            href: http://localhost:8080/v1/full/LACA_US
+           href: http://localhost:8081/api/v1/locations/LACA_US
+           realtime:
+             href: http://localhost:8081/api/v1/realtime/LACA_US
+           hourly_forecast:
+             href: http://localhost:8081/api/v1/hourly/LACA_US
+           daily_forecast:
+             href: http://localhost:8081/api/v1/daily/LACA_US
+           full_forecast:
+             href: http://localhost:8081/api/v1/full/LACA_US
 
     listLocationsExample:
       summary: the first page of locations
@@ -1087,7 +1087,7 @@ components:
               enabled: true
               _links:
                 self:
-                  href: http://localhost:8080/v1/locations/LACA_US
+                   href: http://localhost:8081/api/v1/locations/LACA_US
             - code: BJG_CN
               city_name: Beijing
               country_code: CN
@@ -1095,7 +1095,7 @@ components:
               enabled: false
               _links:
                 self:
-                  href: http://localhost:8080/v1/locations/BJG_CN
+                  href: http://localhost:8081/api/v1/locations/BJG_CN
             - code: BLHWH_USA
               city_name: Bellingham
               region_name: Washington
@@ -1104,7 +1104,7 @@ components:
               enabled: true
               _links:
                 self:
-                  href: http://localhost:8080/v1/locations/BLHWH_USA
+                  href: http://localhost:8081/api/v1/locations/BLHWH_USA
             - code: BLVWH_USA
               city_name: Bellevue
               region_name: Washington
@@ -1113,7 +1113,7 @@ components:
               enabled: true
               _links:
                 self:
-                  href: http://localhost:8080/v1/locations/BLVWH_USA
+                  href: http://localhost:8081/api/v1/locations/BLVWH_USA
             - code: BNGK_TL
               city_name: Bangkok
               region_name: Central of Thailand
@@ -1122,25 +1122,25 @@ components:
               enabled: true
               _links:
                 self:
-                  href: http://localhost:8080/v1/locations/BNGK_TL
-        _links:
-          self:
-            href: http://localhost:8080/v1/locations{?page,size,sort,enabled,region_name,country_code}
-            templated: true
-          first:
-            href: http://localhost:8080/v1/locations?page=1&size=5&sort=code{&enabled,region_name,country_code}
-            templated: true
-          next:
-            href: http://localhost:8080/v1/locations?page=2&size=5&sort=code{&enabled,region_name,country_code}
-            templated: true
-          last:
-            href: http://localhost:8080/v1/locations?page=8&size=5&sort=code{&enabled,region_name,country_code}
-            templated: true
-        page:
-          size: 5
-          total_elements: 36
-          total_pages: 8
-          number: 1
+                  href: http://localhost:8081/api/v1/locations/BNGK_TL
+          _links:
+            self:
+              href: http://localhost:8081/api/v1/locations{?page,size,sort,enabled,region_name,country_code}
+              templated: true
+            first:
+              href: http://localhost:8081/api/v1/locations?page=1&size=5&sort=code{&enabled,region_name,country_code}
+              templated: true
+            next:
+              href: http://localhost:8081/api/v1/locations?page=2&size=5&sort=code{&enabled,region_name,country_code}
+              templated: true
+            last:
+              href: http://localhost:8081/api/v1/locations?page=8&size=5&sort=code{&enabled,region_name,country_code}
+              templated: true
+          page:
+            size: 5
+            total_elements: 36
+            total_pages: 8
+            number: 1
 
     realtimeWeatherExampleByIP:
       summary: realtime weather information
@@ -1154,19 +1154,19 @@ components:
           "wind_speed": 5,
           "last_updated": "2023-02-02T19:23:00Z",
           "_links": {
-            "self": {
-              "href": "http://localhost:8080/v1/realtime"
+             "self": {
+               "href": "http://localhost:8081/api/v1/realtime"
             },
-            "hourly_forecast": {
-              "href": "http://localhost:8080/v1/hourly"
+             "hourly_forecast": {
+               "href": "http://localhost:8081/api/v1/hourly"
             },
-            "daily_forecast": {
-              "href": "http://localhost:8080/v1/daily"
+             "daily_forecast": {
+               "href": "http://localhost:8081/api/v1/daily"
             },
-            "full_forecast": {
-              "href": "http://localhost:8080/v1/full"
-            }            
-          }          
+             "full_forecast": {
+               "href": "http://localhost:8081/api/v1/full"
+           }            
+         }          
         }
     realtimeWeatherExampleByCode:
       summary: realtime weather information
@@ -1180,19 +1180,19 @@ components:
           "wind_speed": 5,
           "last_updated": "2023-02-02T19:23:00Z",
           "_links": {
-            "self": {
-              "href": "http://localhost:8080/v1/realtime/SFCA_USA"
+             "self": {
+               "href": "http://localhost:8081/api/v1/realtime/SFCA_USA"
             },
-            "hourly_forecast": {
-              "href": "http://localhost:8080/v1/hourly/SFCA_USA"
+             "hourly_forecast": {
+               "href": "http://localhost:8081/api/v1/hourly/SFCA_USA"
             },
-            "daily_forecast": {
-              "href": "http://localhost:8080/v1/daily/SFCA_USA"
+             "daily_forecast": {
+               "href": "http://localhost:8081/api/v1/daily/SFCA_USA"
             },
-            "full_forecast": {
-              "href": "http://localhost:8080/v1/full/SFCA_USA"
-            }            
-          }          
+             "full_forecast": {
+               "href": "http://localhost:8081/api/v1/full/SFCA_USA"
+           }            
+         }          
         }
     hourlyWeatherExampleByIP:
       summary: hourly weather forecast information
@@ -1206,34 +1206,34 @@ components:
               "temperature": 12,
               "precipitation": 88,
               "status": "Cloudy"
-            },
+           },
             {
               "hour_of_day": 9,
               "temperature": 13,
               "precipitation": 86,
               "status": "Cloudy"
-            },
+           },
             {
               "hour_of_day": 10,
               "temperature": 15,
               "precipitation": 60,
               "status": "Sunny"
-            }
+           }
           ],
           "_links": {
-            "self": {
-              "href": "http://localhost:8080/v1/hourly"
+             "self": {
+               "href": "http://localhost:8081/api/v1/hourly"
             },
-            "realtime": {
-              "href": "http://localhost:8080/v1/realtime"
+             "realtime": {
+               "href": "http://localhost:8081/api/v1/realtime"
             },
-            "daily_forecast": {
-              "href": "http://localhost:8080/v1/daily"
+             "daily_forecast": {
+               "href": "http://localhost:8081/api/v1/daily"
             },
-            "full_forecast": {
-              "href": "http://localhost:8080/v1/full"
-            }            
-          }
+             "full_forecast": {
+               "href": "http://localhost:8081/api/v1/full"
+           }            
+         }
         
         }
     hourlyWeatherExampleByCode:
@@ -1248,34 +1248,34 @@ components:
               "temperature": 12,
               "precipitation": 88,
               "status": "Cloudy"
-            },
+           },
             {
               "hour_of_day": 9,
               "temperature": 13,
               "precipitation": 86,
               "status": "Cloudy"
-            },
+           },
             {
               "hour_of_day": 10,
               "temperature": 15,
               "precipitation": 60,
               "status": "Sunny"
-            }
+           }
           ],
           "_links": {
-            "self": {
-              "href": "http://localhost:8080/v1/hourly/SFCA_USA"
+             "self": {
+               "href": "http://localhost:8081/api/v1/hourly/SFCA_USA"
             },
-            "realtime": {
-              "href": "http://localhost:8080/v1/realtime/SFCA_USA"
+             "realtime": {
+               "href": "http://localhost:8081/api/v1/realtime/SFCA_USA"
             },
-            "daily_forecast": {
-              "href": "http://localhost:8080/v1/daily/SFCA_USA"
+             "daily_forecast": {
+               "href": "http://localhost:8081/api/v1/daily/SFCA_USA"
             },
-            "full_forecast": {
-              "href": "http://localhost:8080/v1/full/SFCA_USA"
-            }            
-          }
+             "full_forecast": {
+               "href": "http://localhost:8081/api/v1/full/SFCA_USA"
+           }            
+         }
         
         }
     dailyWeatherExampleByIP:
@@ -1292,7 +1292,7 @@ components:
               "max_temp": 12,
               "precipitation": 60,
               "status": "Cloudy"
-            },     
+           },     
             {
               "day_of_month": 11,
               "month": 2,
@@ -1300,7 +1300,7 @@ components:
               "max_temp": 14,
               "precipitation": 70,
               "status": "Sunny"
-            },   
+           },   
             {
               "day_of_month": 12,
               "month": 2,
@@ -1308,22 +1308,22 @@ components:
               "max_temp": 10,
               "precipitation": 90,
               "status": "Rainy"
-            }          
+           }          
           ],
           "_links": {
-            "self": {
-              "href": "http://localhost:8080/v1/daily"
+             "self": {
+               "href": "http://localhost:8081/api/v1/daily"
             },
-            "realtime": {
-              "href": "http://localhost:8080/v1/realtime"
+             "realtime": {
+               "href": "http://localhost:8081/api/v1/realtime"
             },
-            "hourly_forecast": {
-              "href": "http://localhost:8080/v1/hourly"
+             "hourly_forecast": {
+               "href": "http://localhost:8081/api/v1/hourly"
             },
-            "full_forecast": {
-              "href": "http://localhost:8080/v1/full"
-            }            
-          }          
+             "full_forecast": {
+               "href": "http://localhost:8081/api/v1/full"
+           }            
+         }          
         
         }
     dailyWeatherExampleByCode:
@@ -1340,7 +1340,7 @@ components:
               "max_temp": 12,
               "precipitation": 60,
               "status": "Cloudy"
-            },     
+           },     
             {
               "day_of_month": 11,
               "month": 2,
@@ -1348,7 +1348,7 @@ components:
               "max_temp": 14,
               "precipitation": 70,
               "status": "Sunny"
-            },   
+           },   
             {
               "day_of_month": 12,
               "month": 2,
@@ -1356,22 +1356,22 @@ components:
               "max_temp": 10,
               "precipitation": 90,
               "status": "Rainy"
-            }          
+           }          
           ],
           "_links": {
-            "self": {
-              "href": "http://localhost:8080/v1/daily/SFCA_USA"
+             "self": {
+               "href": "http://localhost:8081/api/v1/daily/SFCA_USA"
             },
-            "realtime": {
-              "href": "http://localhost:8080/v1/realtime/SFCA_USA"
+             "realtime": {
+               "href": "http://localhost:8081/api/v1/realtime/SFCA_USA"
             },
-            "hourly_forecast": {
-              "href": "http://localhost:8080/v1/hourly/SFCA_USA"
+             "hourly_forecast": {
+               "href": "http://localhost:8081/api/v1/hourly/SFCA_USA"
             },
-            "full_forecast": {
-              "href": "http://localhost:8080/v1/full/SFCA_USA"
-            }            
-          }          
+             "full_forecast": {
+               "href": "http://localhost:8081/api/v1/full/SFCA_USA"
+           }            
+         }          
         
         }
     fullWeatherExample1:
@@ -1386,7 +1386,7 @@ components:
             "status": "Cloudy",
             "wind_speed": 5,
             "last_updated": "2023-02-02 19:23:00"
-          },      
+         },      
           "hourly_forecast":
           [
             {
@@ -1394,19 +1394,19 @@ components:
               "temperature": 12,
               "precipitation": 88,
               "status": "Cloudy"
-            },
+           },
             {
               "hour_of_day": 9,
               "temperature": 13,
               "precipitation": 86,
               "status": "Cloudy"
-            },
+           },
             {
               "hour_of_day": 10,
               "temperature": 15,
               "precipitation": 60,
               "status": "Sunny"
-            }                
+           }                
           ],          
           "daily_forecast":
           [
@@ -1417,7 +1417,7 @@ components:
               "max_temp": 12,
               "precipitation": 60,
               "status": "Cloudy"
-            },     
+           },     
             {
               "day_of_month": 11,
               "month": 2,
@@ -1425,7 +1425,7 @@ components:
               "max_temp": 14,
               "precipitation": 70,
               "status": "Sunny"
-            },   
+           },   
             {
               "day_of_month": 12,
               "month": 2,
@@ -1433,35 +1433,35 @@ components:
               "max_temp": 10,
               "precipitation": 90,
               "status": "Rainy"
-            }          
+           }          
           ],
           "_links": {
-            "self": {
-              "href": "http://localhost:8080/v1/full/SFCA_USA"
+             "self": {
+               "href": "http://localhost:8081/api/v1/full/SFCA_USA"
             }         
           }          
-        
+         
         }
     fullWeatherExample2:
       summary: realtime weather not present
       value: |-
         {
-          "location": "San Francisco, California, United States of America",    
+          "location": "San Francisco, California, United States of America",
           "hourly_forecast":
           [
             {
-              "hour_of_day": 8,            
+              "hour_of_day": 8,
               "temperature": 12,
               "precipitation": 88,
               "status": "Cloudy"
-            },
+           },
             {
               "hour_of_day": 9,
               "temperature": 13,
               "precipitation": 86,
               "status": "Cloudy"
-            }            
-          ],          
+           }
+          ],
           "daily_forecast":
           [
             {
@@ -1471,7 +1471,7 @@ components:
               "max_temp": 12,
               "precipitation": 60,
               "status": "Cloudy"
-            },     
+           },
             {
               "day_of_month": 11,
               "month": 2,
@@ -1479,20 +1479,19 @@ components:
               "max_temp": 14,
               "precipitation": 70,
               "status": "Sunny"
-            }        
+           }
           ],
           "_links": {
             "self": {
-              "href": "http://localhost:8080/v1/full/SFCA_USA"
-            }         
-          }            
-        
+              "href": "http://localhost:8081/api/v1/full/SFCA_USA"
+           }
+          }
         }
     fullWeatherExample3:
       summary: hourly forecast and daily forecast not available
       value: |-
         {
-          "location": "San Francisco, California, United States of America",   
+          "location": "San Francisco, California, United States of America",
           "realtime_weather": {
             "temperature": 12,
             "humidity": 32,
@@ -1500,27 +1499,27 @@ components:
             "status": "Cloudy",
             "wind_speed": 5,
             "last_updated": "2023-02-02 19:23:00"
-          },            
-          "hourly_forecast":[ ],        
+         },
+          "hourly_forecast":[ ],
           "daily_forecast": [ ],
           "_links": {
             "self": {
-              "href": "http://localhost:8080/v1/full/SFCA_USA"
-            }         
-          }            
+              "href": "http://localhost:8081/api/v1/full/SFCA_USA"
+           }
+          }
         }
     fullWeatherExample4:
       summary: no realtime weather, no hourly forecast, no daily forecast
       value: |-
         {
-          "location": "San Francisco, California, United States of America", 
-          "hourly_forecast":[ ],        
+          "location": "San Francisco, California, United States of America",
+          "hourly_forecast":[ ],
           "daily_forecast": [ ],
           "_links": {
             "self": {
-              "href": "http://localhost:8080/v1/full/SFCA_USA"
-            }         
-          }            
+              "href": "http://localhost:8081/api/v1/full/SFCA_USA"
+           }
+          }
         }
     updateFullWeatherExample:
       summary: full weather forecast information to be updated
@@ -1533,7 +1532,7 @@ components:
             "status": "Cloudy",
             "wind_speed": 5,
             "last_updated": "2023-02-02 19:23:00"
-          },      
+         },      
           "hourly_forecast":
           [
             {
@@ -1541,19 +1540,19 @@ components:
               "temperature": 12,
               "precipitation": 88,
               "status": "Cloudy"
-            },
+           },
             {
               "hour_of_day": 9,
               "temperature": 13,
               "precipitation": 86,
               "status": "Cloudy"
-            },
+           },
             {
               "hour_of_day": 10,
               "temperature": 15,
               "precipitation": 60,
               "status": "Sunny"
-            }                
+           }                
           ],          
           "daily_forecast":
           [
@@ -1564,7 +1563,7 @@ components:
               "max_temp": 12,
               "precipitation": 60,
               "status": "Cloudy"
-            },     
+           },     
             {
               "day_of_month": 11,
               "month": 2,
@@ -1572,7 +1571,7 @@ components:
               "max_temp": 14,
               "precipitation": 70,
               "status": "Sunny"
-            },   
+           },   
             {
               "day_of_month": 12,
               "month": 2,
@@ -1580,14 +1579,14 @@ components:
               "max_temp": 10,
               "precipitation": 90,
               "status": "Rainy"
-            }          
+           }          
           ],
-          "_links": {
-            "self": {
-              "href": "http://localhost:8080/v1/full/SFCA_USA"
+           "_links": {
+             "self": {
+               "href": "http://localhost:8081/api/v1/full/SFCA_USA"
             }         
           }            
-        
+         
         }
   parameters:
     locationCode:
